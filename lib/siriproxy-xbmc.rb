@@ -127,6 +127,13 @@ class SiriProxy::Plugin::XBMC < SiriProxy::Plugin
     end
     request_completed #always complete your request! Otherwise the phone will "spin" at the user!
   end  
+  
+  #kill xbmc
+  listen_for /^kill XBMC|kill X BMC|kill XB MC|tuer XBMC|tu es XBMC|tu es le média Player| tu es XBM c\'est/ do
+    os.system("killxbmc")
+    say "Killing fucking XBMC which crashed again"
+    request_completed
+  end
 
   #play movie or episode
   listen_for /play (.+?)(?: in the (.*))?$/i do |title,roomname|
