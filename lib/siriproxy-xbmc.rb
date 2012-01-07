@@ -21,6 +21,7 @@
 require 'cora'
 require 'siri_objects'
 require 'xbmc_library'
+require 'os'
 
 #######
 # This is plugin to control XBMC
