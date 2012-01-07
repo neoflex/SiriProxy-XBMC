@@ -21,7 +21,6 @@
 require 'cora'
 require 'siri_objects'
 require 'xbmc_library'
-require 'os'
 
 #######
 # This is plugin to control XBMC
@@ -131,7 +130,7 @@ class SiriProxy::Plugin::XBMC < SiriProxy::Plugin
   
   #kill xbmc
   listen_for /^[kK]ill [xX] *[bB] *[mM] *[cC]|[tT]uer [xX] *[bB] *[mM] *[cC]|[tT]u es [xX] *[bB] *[mM] *[cC]|[Tt]u es le m?dia Player| [Tt]u es [xX] *[bB] *[mM] * c?est|[Tt]u [xX] *[bB] *[mM] *[cC]/ do
-    os.system("killxbmc")
+    result = %x[killxbmc]
     say "Killing fucking XBMC which crashed again"
     request_completed
   end
