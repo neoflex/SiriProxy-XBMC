@@ -129,7 +129,7 @@ class SiriProxy::Plugin::XBMC < SiriProxy::Plugin
   end  
   
   #kill xbmc
-  listen_for /^kill [xX] *[bB] *[mM] *[cC]|tuer [xX] *[bB] *[mM] *[cC]|tu es [xX] *[bB] *[mM] *[cC]|tu es le m?dia Player| tu es [xX] *[bB] *[mM] * c?est|tu [xX] *[bB] *[mM] *[cC]/ do
+  listen_for /^[kK]ill [xX] *[bB] *[mM] *[cC]|[tT]uer [xX] *[bB] *[mM] *[cC]|[tT]u es [xX] *[bB] *[mM] *[cC]|[Tt]u es le m?dia Player| [Tt]u es [xX] *[bB] *[mM] * c?est|[Tt]u [xX] *[bB] *[mM] *[cC]/ do
     os.system("killxbmc")
     say "Killing fucking XBMC which crashed again"
     request_completed
