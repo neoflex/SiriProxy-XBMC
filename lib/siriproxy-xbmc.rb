@@ -48,7 +48,7 @@ class SiriProxy::Plugin::XBMC < SiriProxy::Plugin
   end
 
   #show plugin status
-  listen_for /[xX] *[bB] *[mM] *[cC] *(.*)/i do |roomname|
+  listen_for /status [xX] *[bB] *[mM] *[cC] *(.*)/i do |roomname|
     roomname = roomname.downcase.strip
     roomcount = @roomlist.keys.length
 
@@ -129,7 +129,7 @@ class SiriProxy::Plugin::XBMC < SiriProxy::Plugin
   end  
   
   #kill xbmc
-  listen_for /^kill XBMC|kill X BMC|kill XB MC|tuer XBMC|tu es XBMC|tu es le m?dia Player| tu es XBM c?est/ do
+  listen_for /^kill [xX] *[bB] *[mM] *[cC]|tuer [xX] *[bB] *[mM] *[cC]|tu es [xX] *[bB] *[mM] *[cC]|tu es le m?dia Player| tu es [xX] *[bB] *[mM] * c?est|tu [xX] *[bB] *[mM] *[cC]/ do
     os.system("killxbmc")
     say "Killing fucking XBMC which crashed again"
     request_completed
